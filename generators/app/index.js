@@ -4,6 +4,7 @@ const username = require('username');
 module.exports = class extends yeoman.Base {
 
   prompting() {
+    const done = this.async();
     this.prompt([
       {
         type: 'input',
@@ -36,34 +37,17 @@ module.exports = class extends yeoman.Base {
         choices: ['MIT', 'Apache-2.0', 'GPL-3.0', 'UNLICENSED'],
         default: 'MIT',
       },
-      {
-        type: 'list',
-        name: 'linter',
-        message: 'Choose a linter',
-        choices: ['xo'],
-        default: 'xo',
-      },
-      {
-        type: 'list',
-        name: 'tester',
-        message: 'Choose a testing framework',
-        choices: ['ava'],
-        default: 'ava',
-      },
-    ]).then(this._process.bind(this));
+    ]).then(answers => {
+      this.answers = answers;
+      done();
+    });
   }
 
-  /**
-   * Processes the options
-   *
-   * @param {Object} options
-   * @private
-   */
-  _process(options) {
-    this.composeWith('vu:linter', { options });
-    this.composeWith('vu:tester', { options });
-    this.composeWith('vu:license', { options });
-    this.composeWith('vu:templates', { options });
+  init() {
+    this.composeWith('vu:templates', { options: this.answers });
+    this.composeWith('vu:license', { options: this.answers });
+    this.composeWith('vu:linter', { options: this.answers });
+    this.composeWith('vu:tester', { options: this.answers });
   }
 
 }
