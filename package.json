@@ -1,0 +1,22 @@
+{
+  "name": "generator-vu",
+  "version": "0.1.0",
+  "description": "",
+  "files": [
+    ".editorconfig"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vu Tran <vu@vu-tran.com>",
+  "license": "MIT",
+  "dependencies": {
+    "username": "^2.2.2",
+    "yeoman-generator": "^0.24.1"
+  },
+  "devDependencies": {}
+}

@@ -1,0 +1,19 @@
+{
+  "name": "<%= name %>",
+  "version": "0.1.0",
+  "description": "",
+  "keywords": [],
+  "main": "index.js",
+  "scripts": {
+  },
+  "author": "<%= fullName %> <<%= email %>>",
+  "license": "<%= license %>",
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/<%= githubUsername %>/<%= name %>.git"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}
