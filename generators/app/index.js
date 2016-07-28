@@ -16,13 +16,13 @@ module.exports = class extends yeoman.Base {
         type: 'input',
         name: 'fullName',
         message: 'What is your full name?',
-        default: 'Vu Tran',
+        default: this.user.git.name(),
       },
       {
         type: 'input',
         name: 'email',
         message: 'What is your email address?',
-        default: 'vu@vu-tran.com',
+        default: this.user.git.email(),
       },
       {
         type: 'input',
