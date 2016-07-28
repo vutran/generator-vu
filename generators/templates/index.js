@@ -16,6 +16,7 @@ module.exports = class extends yeoman.Base {
     // move dot files
     this._move('editorconfig', '.editorconfig');
     this._move('gitignore', '.gitignore');
+    this._move('travis.yml', '.travis.yml');
   }
 
 }
