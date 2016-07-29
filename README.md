@@ -8,6 +8,17 @@
 $ npm install -g yo generator-vu
 ```
 
+## Features
+
+### Linters
+
+  - ESLint
+  - xo
+
+### Testers
+
+  - ava
+
 ## Usage
 
 ```bash
