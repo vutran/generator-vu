@@ -9,7 +9,7 @@ module.exports = class extends yeoman.Base {
         type: 'list',
         name: 'tester',
         message: 'Choose a testing framework',
-        choices: ['ava'],
+        choices: ['ava', 'none'],
         default: 'ava',
       },
     ];
@@ -24,7 +24,19 @@ module.exports = class extends yeoman.Base {
       case 'ava':
         this.composeWith('vu:tester-ava');
         break;
+      default:
+        // do nothing...
+        break;
     }
+  }
+
+  writing() {
+    const data = {
+      scripts: {
+        test: ":"
+      },
+    };
+    this.fs.extendJSON(this.destinationPath('package.json'), data);
   }
 
 }
