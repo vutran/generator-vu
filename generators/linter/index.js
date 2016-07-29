@@ -9,8 +9,8 @@ module.exports = class extends yeoman.Base {
         type: 'list',
         name: 'linter',
         message: 'Choose a linter',
-        choices: ['xo'],
-        default: 'xo',
+        choices: ['eslint', 'xo', 'none'],
+        default: 'eslint',
       },
     ];
     this.prompt(prompts).then(answers => {
@@ -21,10 +21,25 @@ module.exports = class extends yeoman.Base {
 
   configuring() {
     switch (this.linter.toLowerCase()) {
+      case 'eslint':
+        this.composeWith('vu:linter-eslint');
+        break;
       case 'xo':
         this.composeWith('vu:linter-xo');
         break;
+      default:
+        // do nothing...
+        break;
     }
+  }
+
+  writing() {
+    const data = {
+      scripts: {
+        lint: ":"
+      },
+    };
+    this.fs.extendJSON(this.destinationPath('package.json'), data);
   }
 
 }

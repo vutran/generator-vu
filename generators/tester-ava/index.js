@@ -6,8 +6,13 @@ module.exports = class extends yeoman.Base {
     this.npmInstall(['ava'], { saveDev: true });
   }
 
-  end() {
-    this.spawnCommand('ava', ['--init']);
+  writing() {
+    const data = {
+      scripts: {
+        test: "npm run lint && ava"
+      },
+    };
+    this.fs.extendJSON(this.destinationPath('package.json'), data);
   }
 
 }
