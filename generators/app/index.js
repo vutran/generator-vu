@@ -49,6 +49,7 @@ module.exports = class extends yeoman.Base {
     this.composeWith('vu:license', { options: this.answers });
     this.composeWith('vu:linter', { options: this.answers });
     this.composeWith('vu:tester', { options: this.answers });
+    this.composeWith('vu:codecov', { options: this.answers });
   }
 
 }
