@@ -1,3 +1,4 @@
+const path = require('path');
 const yeoman = require('yeoman-generator');
 const username = require('username');
 
@@ -10,7 +11,7 @@ module.exports = class extends yeoman.Base {
         type: 'input',
         name: 'name',
         message: 'Your project name',
-        default: this.appname,
+        default: path.basename(this.destinationRoot()),
       },
       {
         type: 'input',
