@@ -6,4 +6,8 @@ module.exports = class extends yeoman.Base {
     this.npmInstall(['xo'], { saveDev: true });
   }
 
+  end() {
+    this.spawnCommand('xo', ['--init']);
+  }
+
 }
