@@ -19,6 +19,10 @@ $ npm install -g yo generator-vu
 
   - ava
 
+### Code Coverage
+
+  - Travis CI
+
 ## Usage
 
 ```bash
