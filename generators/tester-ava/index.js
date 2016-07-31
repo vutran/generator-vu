@@ -7,6 +7,12 @@ module.exports = class extends yeoman.Base {
   }
 
   writing() {
+    // copies files
+    this.fs.copyTpl(
+      this.templatePath('**/*'),
+      this.destinationRoot(),
+      this.options
+    );
     const data = {
       scripts: {
         test: "npm run lint && ava"
