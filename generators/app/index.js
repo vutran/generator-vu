@@ -4,6 +4,34 @@ const username = require('username');
 
 module.exports = class extends yeoman.Base {
 
+  constructor(a, b) {
+    super(a, b);
+    this.option('name', {
+      desc: 'Specify your project name',
+    });
+    this.option('fullName', {
+      desc: 'Specify your full name',
+    });
+    this.option('email', {
+      desc: 'Specify your email address',
+    });
+    this.option('githubUsername', {
+      desc: 'Specify your GitHub username',
+    });
+    this.option('license', {
+      desc: 'Set a license for your project',
+    });
+    this.option('linter', {
+      desc: 'Use a linting framework',
+    });
+    this.option('tester', {
+      desc: 'Use a test runner/framework',
+    });
+    this.option('codecov', {
+      desc: 'Use code coverage',
+    });
+  }
+
   prompting() {
     const done = this.async();
     this.prompt([
@@ -38,18 +66,39 @@ module.exports = class extends yeoman.Base {
         choices: ['MIT', 'Apache-2.0', 'GPL-3.0', 'UNLICENSED'],
         default: 'MIT',
       },
+      {
+        type: 'list',
+        name: 'linter',
+        message: 'Choose a linter',
+        choices: ['eslint', 'xo', 'none'],
+        default: 'eslint',
+      },
+      {
+        type: 'list',
+        name: 'tester',
+        message: 'Choose a test runner',
+        choices: ['ava', 'none'],
+        default: 'ava',
+      },
+      {
+        type: 'list',
+        name: 'codecov',
+        message: 'Choose a code coverage',
+        choices: ['travis-ci', 'none'],
+        default: 'travis-ci',
+      },
     ]).then(answers => {
-      this.answers = answers;
+      this.options = answers;
       done();
     });
   }
 
   init() {
-    this.composeWith('vu:templates', { options: this.answers });
-    this.composeWith('vu:license', { options: this.answers });
-    this.composeWith('vu:linter', { options: this.answers });
-    this.composeWith('vu:tester', { options: this.answers });
-    this.composeWith('vu:codecov', { options: this.answers });
+    this.composeWith('vu:templates', { options: this.options });
+    this.composeWith('vu:license', { options: this.options });
+    this.composeWith('vu:linter', { options: this.options });
+    this.composeWith('vu:tester', { options: this.options });
+    this.composeWith('vu:codecov', { options: this.options });
   }
 
 }

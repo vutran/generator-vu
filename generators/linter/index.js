@@ -2,25 +2,16 @@ const yeoman = require('yeoman-generator');
 
 module.exports = class extends yeoman.Base {
 
-  prompting() {
-    const done = this.async();
-    const prompts = [
-      {
-        type: 'list',
-        name: 'linter',
-        message: 'Choose a linter',
-        choices: ['eslint', 'xo', 'none'],
-        default: 'eslint',
-      },
-    ];
-    this.prompt(prompts).then(answers => {
-      this.linter = answers.linter;
-      done();
+  constructor(a, b) {
+    super(a, b);
+    this.option('linter', {
+      desc: 'Choose a linter',
+      default: 'eslint',
     });
   }
 
   configuring() {
-    switch (this.linter.toLowerCase()) {
+    switch (this.options.linter.toLowerCase()) {
       case 'eslint':
         this.composeWith('vu:linter-eslint');
         break;
@@ -36,7 +27,7 @@ module.exports = class extends yeoman.Base {
   writing() {
     const data = {
       scripts: {
-        lint: ":"
+        lint: ':',
       },
     };
     this.fs.extendJSON(this.destinationPath('package.json'), data);
