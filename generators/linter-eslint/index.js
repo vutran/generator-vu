@@ -7,7 +7,11 @@ module.exports = class extends yeoman.Base {
   }
 
   install() {
-    this.npmInstall(['eslint', 'eslint-plugin-import', 'eslint-config-airbnb-base'], { saveDev: true });
+    const pkgs = ['eslint', 'eslint-plugin-import', 'eslint-config-airbnb-base'];
+    if (this.options.tester === 'ava') {
+      pkgs.push('eslint-plugin-ava');
+    }
+    this.npmInstall(pkgs, { saveDev: true });
   }
 
   writing() {
@@ -26,6 +30,17 @@ module.exports = class extends yeoman.Base {
       },
     };
     this.fs.extendJSON(this.destinationPath('package.json'), data);
+
+    // set linter base config
+    const eslintConfig = {
+      extends: ['airbnb-base'],
+      plugins: [],
+    };
+    if (this.options.tester === 'ava') {
+      eslintConfig.extends.push('plugin:ava/recommended');
+      eslintConfig.plugins.push('ava');
+    }
+    this.fs.extendJSON(this.destinationPath('.eslintrc'), eslintConfig);
   }
 
 }

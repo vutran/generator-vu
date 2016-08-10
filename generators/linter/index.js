@@ -13,10 +13,10 @@ module.exports = class extends yeoman.Base {
   configuring() {
     switch (this.options.linter.toLowerCase()) {
       case 'eslint':
-        this.composeWith('vu:linter-eslint');
+        this.composeWith('vu:linter-eslint', { options: this.options });
         break;
       case 'xo':
-        this.composeWith('vu:linter-xo');
+        this.composeWith('vu:linter-xo', { options: this.options });
         break;
       default:
         // do nothing...
