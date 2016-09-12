@@ -19,7 +19,7 @@ $ npm install -g yo generator-vu
 
   - ava
 
-### Code Coverage
+### Continuous Integration
 
   - Travis CI
 

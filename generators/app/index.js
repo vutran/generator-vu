@@ -27,8 +27,8 @@ module.exports = class extends yeoman.Base {
     this.option('tester', {
       desc: 'Use a test runner/framework',
     });
-    this.option('codecov', {
-      desc: 'Use code coverage',
+    this.option('ci', {
+      desc: 'Use continuous integration service',
     });
   }
 
@@ -82,8 +82,8 @@ module.exports = class extends yeoman.Base {
       },
       {
         type: 'list',
-        name: 'codecov',
-        message: 'Choose a code coverage',
+        name: 'ci',
+        message: 'Choose a continuous integration service',
         choices: ['travis-ci', 'none'],
         default: 'travis-ci',
       },
@@ -98,7 +98,7 @@ module.exports = class extends yeoman.Base {
     this.composeWith('vu:license', { options: this.options });
     this.composeWith('vu:linter', { options: this.options });
     this.composeWith('vu:tester', { options: this.options });
-    this.composeWith('vu:codecov', { options: this.options });
+    this.composeWith('vu:ci', { options: this.options });
   }
 
 }
