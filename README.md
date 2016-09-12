@@ -18,6 +18,7 @@ $ npm install -g yo generator-vu
 ### Testers
 
   - ava
+  - Jest
 
 ### Continuous Integration
 
@@ -28,6 +29,10 @@ $ npm install -g yo generator-vu
 ```bash
 $ yo vu
 ```
+
+## Related
+
+- [.editorconfig](https://github.com/vutran/editorconfig/) - My generic `.editorconfig` file
 
 ## License
 
