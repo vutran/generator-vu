@@ -15,6 +15,9 @@ module.exports = class extends yeoman.Base {
       case 'ava':
         this.composeWith('vu:tester-ava');
         break;
+      case 'jest':
+        this.composeWith('vu:tester-jest');
+        break;
       default:
         // do nothing...
         break;

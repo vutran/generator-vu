@@ -77,8 +77,8 @@ module.exports = class extends yeoman.Base {
         type: 'list',
         name: 'tester',
         message: 'Choose a test runner',
-        choices: ['ava', 'none'],
-        default: 'ava',
+        choices: ['ava', 'jest', 'none'],
+        default: 'jest',
       },
       {
         type: 'list',
