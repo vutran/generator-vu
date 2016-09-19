@@ -7,7 +7,7 @@ module.exports = class extends yeoman.Base {
   }
 
   install() {
-    this.npmInstall(['jest', 'babel-preset-es2015'], { saveDev: true });
+    this.npmInstall(['jest', 'babel-preset-es2015', 'babel-polyfill'], { saveDev: true });
   }
 
   writing() {
@@ -25,6 +25,7 @@ module.exports = class extends yeoman.Base {
     this.fs.extendJSON(this.destinationPath('package.json'), data);
     // move dot files
     this._move('babelrc', '.babelrc');
+    this._move('__tests__/eslintrc', '__tests__/.eslintrc');
   }
 
 }
