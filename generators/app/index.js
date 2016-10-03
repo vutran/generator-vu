@@ -63,7 +63,7 @@ module.exports = class extends yeoman.Base {
         type: 'list',
         name: 'license',
         message: 'Choose a license',
-        choices: ['MIT', 'Apache-2.0', 'BSD-3-Clause', 'GPL-3.0', 'ISC', 'UNLICENSED'],
+        choices: ['MIT', 'Apache-2.0', 'BSD-3-Clause', 'EPL-1.0', 'GPL-2.0', 'GPL-3.0', 'MPL-2.0', 'ISC', 'UNLICENSED'],
         default: 'MIT',
       },
       {
