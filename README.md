@@ -1,5 +1,7 @@
 # generator-vu
 
+[![license](https://img.shields.io/github/license/vutran/generator-vu.svg?maxAge=2592000&style=flat-square)](LICENSE)
+
 > Yeoman generator for new modules
 
 ## Install
