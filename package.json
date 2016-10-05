@@ -3,7 +3,8 @@
   "version": "0.7.1",
   "description": "Yeoman generator for new modules",
   "files": [
-    ".editorconfig"
+    "generators",
+    "index.js"
   ],
   "keywords": [
     "yeoman-generator"
@@ -14,6 +15,14 @@
   },
   "author": "Vu Tran <vu@vu-tran.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:vutran/generator-vu.git"
+  },
+  "homepage": "https://github.com/vutran/generator-vu",
+  "bugs": {
+    "web": "https://github.com/vutran/generator-vu/issues"
+  },
   "dependencies": {
     "username": "^2.2.2",
     "yeoman-generator": "^0.24.1"
