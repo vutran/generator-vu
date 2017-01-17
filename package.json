@@ -24,7 +24,7 @@
     "web": "https://github.com/vutran/generator-vu/issues"
   },
   "dependencies": {
-    "username": "^2.2.2",
+    "username": "^2.3.0",
     "yeoman-generator": "^0.24.1"
   },
   "devDependencies": {}
